@@ -21,6 +21,11 @@ import { DadesUserComponent } from './dades-user/dades-user.component';
 import {NgbCarousel, NgbRating} from "@ng-bootstrap/ng-bootstrap";
 import {DatePipe} from "@angular/common";
 import { InfoProdComponent } from './info-prod/info-prod.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +44,10 @@ import { InfoProdComponent } from './info-prod/info-prod.component';
     AccesorisComponent,
     SuplementsComponent,
     DadesUserComponent,
-    InfoProdComponent
+    InfoProdComponent,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,41 @@
 <app-menu></app-menu>
 <app-navegacio></app-navegacio>
 <article>
-  <h1>Dades usuari loguejat</h1>
-  <p>Nom:</p>
-  <p>Cognom:</p>
-  <p>Telefon:</p>
-  <p>Email:</p>
-  <p>Contrasenya:</p>
+  <article>
+    <h1>Dades usuari loguejat</h1>
+    <form id="perfilForm">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" name="nom"><br/>
+      <label for="cognom">Cognom:</label>
+      <input type="text" id="cognom" name="cognom"><br/>
+      <label for="telefon">Telefon:</label>
+      <input type="text" id="telefon" name="telefon"><br/>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" readonly><br/>
+      <label for="passw">Contrasenya:</label>
+      <input type="password" id="passw" name="passw"><br/>
+      <input type="submit" value="Actualitzar">
+    </form>
+  </article>
+
+  <script>
+    document.getElementById('perfilForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      const response = await fetch('http://localhost:3080/perfil', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) {
+        alert('Perfil actualizado');
+      } else {
+        alert('Error actualizando perfil');
+      }
+    });
+  </script>
+
 
 </article>
 <app-peu-pagina></app-peu-pagina>
