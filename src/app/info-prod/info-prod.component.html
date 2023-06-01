@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+<app-navegacio></app-navegacio>
+
+<article>
+
+  <a><br/>
+    <h2>Ejercicios de Bíceps</h2>
+
+    <div *ngIf="bicepsExerciseNames">
+      <ul>
+        <li *ngFor="let exerciseName of bicepsExerciseNames">{{ exerciseName }}</li>
+      </ul>
+    </div>
+
+    <div *ngIf="!bicepsExerciseNames">
+      <p>Cargando ejercicios de bíceps...</p>
+    </div>
+
+    <h2>Ejercicios de Tríceps</h2>
+
+    <div *ngIf="tricepsExerciseNames">
+      <ul>
+        <li *ngFor="let exerciseName of tricepsExerciseNames">{{ exerciseName }}</li>
+      </ul>
+    </div>
+
+    <div *ngIf="!tricepsExerciseNames">
+      <p>Cargando ejercicios de tríceps...</p>
+    </div>
+
+
+
+
+
+
+
+  </a>
+</article>
+
+
+<app-peu-pagina></app-peu-pagina>
